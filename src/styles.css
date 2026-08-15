@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #F6F2E8;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 41px,
+    rgba(180, 67, 46, 0.16) 41px,
+    rgba(180, 67, 46, 0.16) 42px
+  );
+}
+
+.font-display {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+.font-mono-tag {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+::selection {
+  background: #B8862F;
+  color: #F6F2E8;
+}
+
+:focus-visible {
+  outline: 2px solid #B4432E;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

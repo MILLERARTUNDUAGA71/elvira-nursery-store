@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null;
+      // Nota: si compartes el mismo proyecto Firebase con Control de Vivero,
+      // reemplaza esto por tu chequeo de rol (owner/empleado) como en esa app.
+    }
+
+    match /products/{productId} {
+      allow read: if true;               // el catálogo es público
+      allow write: if isAdmin();         // solo tú puedes crear/editar/borrar
+    }
+
+    match /orders/{orderId} {
+      allow create: if true;             // cualquier cliente puede generar su orden
+      allow read: if isAdmin();          // solo tú ves todas las órdenes
+      allow update: if isAdmin();        // solo tú (o el webhook con Admin SDK) actualiza estado
+    }
+  }
+}

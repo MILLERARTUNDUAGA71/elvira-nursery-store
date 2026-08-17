@@ -4,6 +4,7 @@ import { Search } from 'lucide-react'
 import { db } from '../lib/firebase.js'
 import ProductCard from '../components/ProductCard.jsx'
 import LeafPattern from '../components/LeafPattern.jsx'
+import Hero from '../components/Hero.jsx'
 import { getCategoryStyle } from '../lib/categoryStyles.js'
 
 export default function Store() {
@@ -43,42 +44,7 @@ return matchesCategory && matchesSearch
 
 return (
 <div>
-{/* HERO */}
-<div className="relative overflow-hidden bg-pine">
-<LeafPattern color="#F6F2E8" opacity={0.06} id="hero" />
-<div
-className="absolute inset-0"
-style={{
-background:
-'radial-gradient(ellipse at top left, rgba(184,134,47,0.25), transparent 55%), radial-gradient(ellipse at bottom right, rgba(180,67,46,0.25), transparent 55%)',
-}}
-/>
-<div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-10 sm:pt-16 sm:pb-14">
-<p className="font-mono-tag text-xs uppercase tracking-widest text-gold mb-3">
-Catálogo — inventario en vivo
-</p>
-<h1 className="font-display text-4xl sm:text-5xl text-paper font-semibold leading-tight max-w-2xl">
-Plantas, palmas y arbustos listos para su próximo proyecto.
-</h1>
-<p className="text-paper/70 mt-3 max-w-xl font-body text-sm">
-El inventario y los precios se actualizan en tiempo real. Agregue lo que necesite al carrito y
-complete su orden en línea.
-</p>
-{products && (
-<div className="flex gap-6 mt-6">
-<div>
-<p className="font-display text-2xl text-paper">{products.length}+</p>
-<p className="text-paper/60 text-xs font-mono-tag uppercase tracking-wide">Productos</p>
-</div>
-<div>
-<p className="font-display text-2xl text-paper">{categories.length - 1}</p>
-<p className="text-paper/60 text-xs font-mono-tag uppercase tracking-wide">Categorías</p>
-</div>
-</div>
-)}
-</div>
-</div>
-
+<Hero />
 <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
 {/* BUSCADOR */}
 <div className="relative mb-5 sticky top-[73px] z-20 bg-paper/95 backdrop-blur py-2 -mx-4 px-4 sm:mx-0 sm:px-0">
